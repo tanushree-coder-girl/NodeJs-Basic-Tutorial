@@ -1,0 +1,108 @@
+1. Installation 
+
+    download from official website 
+    https://nodejs.org/en/
+
+    check version 
+        node --version 
+        npm --version
+
+    official Documentation 
+        https://nodejs.org/api/documentation.html
+
+    resources for learning 
+        https://nodejs.dev/learn
+    
+2. Introduction 
+    Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. 
+    A Free an open source server environment.
+    Node js is JavaScript Run Time environment. 
+    Node js works on Asynchronous / Non Blocking IO model. single thread can manage multi-thread. 
+    Node uses JavaScript but localstorage and dom is not avaialable in node js.
+
+3. Create main file which is index.js and run in terminal like
+    node filename.js 
+
+4. NPM 
+    node package maanger which comes with node Installation.
+
+    some basic and useful commands 
+    npm init 
+    npm install
+    npm install package-name 
+        for example => npm install express --save 
+    
+    For install package Globally 
+    npm install -g package-name 
+        for example => npm i -g nodemon 
+
+    for install only in development mode 
+    npm install --save-dev package-name 
+
+    npm uninstall package-name 
+
+5. Import And Export own modules and cjs and mjs
+
+    Module Wrapper Function 
+    (function (exports, require, module, __filename, __dirname){
+            //All code is wrapper inside this function by default 
+    })
+
+    Common Js Module Import And export 
+
+        module.exports = moduleName 
+        const moduleName = require('./moduleFileName');
+        console.log(moduleName) 
+
+    Ecmascript Module Import And Export 
+        for use ES6 import and export we had to use extension .mjs 
+        for use ES6 module include  type in package.json file 
+
+          "type": "module",
+        
+            ES6 Module Import And Export 
+            export default data;
+            import data from './fileName.mjs'
+
+            // Named Export 
+            export const greetings = "Hello everyone"; 
+            export const welcome = "Welcome All"; 
+
+            import { greetings, welcome} from './fileName.mjs';
+            console.log(greetings + " " + welcome );
+
+6. Built in Modules 
+    1. OS 
+         https://nodejs.org/api/os.html
+    2. Path 
+         https://nodejs.org/api/path.html
+    3. FS 
+         https://nodejs.org/api/fs.html
+    4. URL 
+        https://nodejs.org/api/url.html
+    5. Event Emitter 
+        https://nodejs.org/api/events.html
+
+7. Http Server 
+    https://nodejs.org/api/http.html
+
+    const http = require('http');
+    const port = process.env.PORT || 3000
+
+    const server = http.createServer((req, res)=>{
+        res.statusCode = 200; 
+        res.setHeader('Content-type', 'text/html')
+        res.end('Hello All')
+    })
+
+    server.listen(port, () => {
+        console.log(`server is listening on port ${port} `);    
+    })
+
+    note => http status code 200 = ok 
+            status code 404 = page not found 
+            status code 500 = internal server error
+    
+
+note => website built inside website folder 
+==============================================================================
